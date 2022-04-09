@@ -1,6 +1,8 @@
 package util.collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ListUtil {
 	
@@ -32,10 +34,24 @@ public class ListUtil {
 		System.out.println(al.contains("22"));
 	}
 	
+	public void testDoubleColon() {
+		List<Integer> list = Arrays.asList(1, 3, 2, 4,7);
+		
+		list.forEach(n -> System.out.println(n));
+		list.forEach((Integer n) -> System.out.println(n));
+		
+		list.forEach(System.out::println);
+		//list.forEach((x) -> System.out::println(x));
+	}
+	
 	public static void main(String[] args) {
 		ListUtil lu = new ListUtil();
 		
 		lu.testSubList();
+		
+		System.out.println("================testDoubleColon=================");
+		lu.testDoubleColon();
+		System.out.println("================testDoubleColon=================");
 	}
 	
 }
