@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class StringTest {
 
 	public static void main(String[] args) {
-		String str = "<p>A-SPICE ±âÁØ °³¹ß »êÃâ¹° ¸ğµÎ ÁØºñ ÀúÀå Å×½ºÆ®<td></p><br><BR><p>ÀúÀå Å×½ºÆ®</p>";
+		String str = "<p>A-SPICE ê¸°ì¤€ ê°œë°œ ì‚°ì¶œë¬¼ ëª¨ë‘ ì¤€ë¹„ ì €ì¥ í…ŒìŠ¤íŠ¸<td></p><br><BR><p>ì €ì¥ í…ŒìŠ¤íŠ¸</p>";
 		Pattern pattern = Pattern.compile("<(/)?(p)(\\s)*(/)?>", Pattern.CASE_INSENSITIVE);
 		Pattern pattern2 = Pattern.compile("<(br)(\\s)*(/)?>", Pattern.CASE_INSENSITIVE);
 
@@ -25,7 +25,43 @@ public class StringTest {
 		// Pattern.CASE_INSENSITIVE), "\n"); // 2011-10-25
 		// System.out.println(Pattern.compile("<(p)(\\s)*(/)?>",
 		// Pattern.CASE_INSENSITIVE));
-
+		
+		/*
+Â· Program structureï»¿
+Â· Sequence and state diagram
+Â· Source code
+Â· Coding standard
+Â· Complete function description
+Â· Description of function call
+Â· Graphical representation of signals, processing, and output
+Â· Documentation of fault response and diagnostics
+Â· Testing specifications
+Â· Testing documentation
+Â· Development environment
+		 */
+		
+		String strText = "Â· Program structureï»¿\r\n"
+				+ "Â· Sequence and state diagram\r\n"
+				+ "Â· Source code\r\n"
+				+ "Â· Coding standard\r\n"
+				+ "Â· Complete function description\r\n"
+				+ "Â· Description of function call\r\n"
+				+ "Â· Graphical representation of signals, processing, and output\r\n"
+				+ "Â· Documentation of fault response and diagnostics\r\n"
+				+ "Â· Testing specifications\r\n"
+				+ "Â· Testing documentation\r\n"
+				+ "Â· Development environment";
+		
+		System.out.println("============================================");
+		System.out.println(strText);
+		System.out.println("============================================");
+		strText = "<P>" + strText.replaceAll("\r\n", "</P><BR><P>") + "</p>";
+		System.out.println(strText);
+		
+		
+		System.out.println("==================");
+		System.out.println(">/r<");
+		
 	}
 
 }
