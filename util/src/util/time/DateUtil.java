@@ -9,10 +9,11 @@ import java.util.Locale;
 
 public class DateUtil {
 
-	// Data format 타입
+	// Date format 타입
 	static final String pattern = "yyyyMMdd_HHmmss_SSSSS";
 	public final static String F_DATE_REVERSE_SLASH = "dd/MM/yyyy";
 	public final static String F_DATEMONTH_NONE = "yyyyMM";
+	public final static String F_DATEMONTH_SLASH = "yy/M";
 	public final static String F_DATEDAY_NONE = "yyyyMMdd";
 	public final static String F_DATEDAY_DASH = "yyyy-MM-dd";
 	public final static String F_DATEHOUR_NONE = "yyyyMMddHH";
@@ -36,6 +37,7 @@ public class DateUtil {
 
 		System.out.println(convertDateToString(addDate(getCurrentDate(), -1), pattern));
 		System.out.println(convertDateToString(addDate(getCurrentDateStartTime(), -1), pattern));
+		System.out.println(convertDateToString(getCurrentDateStartTime(), F_DATEMONTH_SLASH));
 
 //		System.out.println(convertStringToEpoch("20200717"));
 //		System.out.println(convertEpochToDateString(convertStringToEpoch("20200717"), F_DATEDAY_NONE));
@@ -406,5 +408,28 @@ public class DateUtil {
 			return null;
 		}
 		return convertDateToString(convertStringToDate(date, inputFormat), outPutFormat);
+	}
+	
+	/**
+	 * 스트링 일자를 입력 받아 비교 하는 함수
+	 * first > second 경우만 true
+	 * 
+	 * @param firstDate
+	 * @param firstFormat
+	 * @param secondDate
+	 * @param secondFormat
+	 * @return
+	 */
+	public static boolean compareStringDate(String firstDate, String firstFormat, String secondDate, String secondFormat) {
+		if(firstDate == null || "".equals(firstDate) || firstFormat == null || "".equals(firstFormat) || 
+				secondDate == null || "".equals(secondDate) || secondFormat == null || "".equals(secondFormat) ) {
+			return false;
+		}
+		if(convertStringToDate(firstDate, firstFormat).compareTo(convertStringToDate(secondDate, secondFormat)) == -1) {
+			return false;
+		} else if(convertStringToDate(firstDate, firstFormat).compareTo(convertStringToDate(secondDate, secondFormat)) == 0) {
+			return false;
+		}
+		return true;
 	}
 }
