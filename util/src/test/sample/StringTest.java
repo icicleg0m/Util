@@ -1,5 +1,7 @@
 package test.sample;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringTest {
@@ -62,6 +64,9 @@ public class StringTest {
 		System.out.println("==================");
 		System.out.println(">/r<");
 		
+		
+		List<String> tableTitleList = Arrays.asList("Remained","Resolved","Total");
+		System.out.println("list count : " + tableTitleList.indexOf("Total"));
 	}
 
 }
